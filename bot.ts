@@ -19,6 +19,12 @@ function startMenu(ctx) {
 }
 
 // bot.command("start", (ctx) => ctx.reply("Welcome! Up and running."));
-    bot.command('start', ctx => { startMenu(ctx) })
+    bot.command('start', ctx => {
+        ctx.reply(
+            "Welcome"
+        ).then(() => {
+            startMenu(ctx)
+        })
+    })
 
 bot.command("ping", (ctx) => ctx.reply(`Pong! ${new Date()} ${Date.now()}`));
