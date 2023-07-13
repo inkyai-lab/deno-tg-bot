@@ -3,7 +3,7 @@ import { Bot } from "./deps.deno.ts";
 export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "");
 
 function startMenu(ctx) {
-    ctx.replyWithHTML(`
+    ctx.reply(`
         <b>Welcome to GoGalaGames official AI chat support.</b>\n
         <b>This AI CHAT is powered by openAI modal and help any crypto related issues.</b>\n\n
         <i>All conversations are End-to-end encrypted and are fully <b>Secured & Private</b>.</i>`, {
