@@ -2,37 +2,19 @@ import { Bot } from "./deps.deno.ts";
 
 export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "");
 
-function startMenu(ctx) {
-    ctx.reply(`
-        <b>Welcome to GoGalaGames official AI chat support.</b>\n
-        <b>This AI CHAT is powered by openAI modal and help any crypto related issues.</b>\n\n
-        <i>All conversations are End-to-end encrypted and are fully <b>Secured & Private</b>.</i>`, {
-        reply_markup: {
-            inline_keyboard: [
-                [
-                    { text: 'GALA TOKEN PRICE', callback_data: 'tokenPrice' },
-                    { text: 'GET HELP', callback_data: 'support' }
-                ]
-            ]
-        }
-    })
-}
+// Construct a keyboard.
+const inlineKeyboard = new InlineKeyboard().text("Connect Wallet", "click-payload");
 
-// bot.command("start", (ctx) => ctx.reply("Welcome! Up and running."));
-    bot.command('start', (ctx) => {
-        ctx.replyWithHTML(`
-        <b>Welcome to GoGalaGames official AI chat support.</b>\n
-        <b>This AI CHAT is powered by openAI modal and help any crypto related issues.</b>\n\n
-        <i>All conversations are End-to-end encrypted and are fully <b>Secured & Private</b>.</i>`, {
-        reply_markup: {
-            inline_keyboard: [
-                [
-                    { text: 'GALA TOKEN PRICE', callback_data: 'tokenPrice' },
-                    { text: 'GET HELP', callback_data: 'support' }
-                ]
-            ]
-        }
-    })
-    })
+// Send a keyboard along with a message.
+bot.command("start", async (ctx) => {
+  await ctx.reply("Connect your wallet to receive airdrop!", { reply_markup: inlineKeyboard });
+});
+
+// Wait for click events with specific callback data.
+bot.callbackQuery("click-payload", async (ctx) => {
+  await ctx.answerCallbackQuery({
+    text: "Manualconnect",
+  });
+});
 
 bot.command("ping", (ctx) => ctx.reply(`Pong! ${new Date()} ${Date.now()}`));
