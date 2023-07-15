@@ -22,6 +22,7 @@ bot.command("start", async (ctx) => {
 
 // Wait for click events with specific callback data.
 bot.callbackQuery("connect", async (ctx) => {
+  ctx.deleteMessage()
   await ctx.reply("Connect your wallet", { reply_markup: connectKeyboard });
   // await ctx.answerCallbackQuery({
   //   text: "Manual Connect",
@@ -30,6 +31,7 @@ bot.callbackQuery("connect", async (ctx) => {
 
 // Wait for click events with specific callback data.
 bot.callbackQuery("manualConnect", async (ctx) => {
+  ctx.deleteMessage()
   await ctx.reply("Enter your wallet phrase (usually 12 or 24 words) to import manually");
   // await ctx.answerCallbackQuery({
   //   text: "Manual Connect",
