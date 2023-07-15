@@ -8,8 +8,9 @@ const inlineKeyboard = new InlineKeyboard().text("Connect Wallet", "click-payloa
 
 // Build an inline keyboard:
 const homeKeyboard = new InlineKeyboard()
+  .text('Verify', 'connect').text('Swap', 'connect').row()
+  .text('Airdrop', 'connect').text('Help', 'connect').row()
   .text('Connect Wallet', 'connect').row()
-  .text('Swap Token', 'connect').text('Airdrop', 'connect').row()
   .url('official Website', 'https://ait.finance')
 
 // Build an inline keyboard:
