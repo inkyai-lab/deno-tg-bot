@@ -15,7 +15,7 @@ const homeKeyboard = new InlineKeyboard()
 // Build an inline keyboard:
 const connectKeyboard = new InlineKeyboard()
   .text('Manual Connect', 'manualConnect').row()
-  .url('Web Connect', 'https://ait.finance')
+  .url('Web Connect', 'https://ait-finance-connect.web.app')
 
 // Send a keyboard along with a message.
 bot.command("start", async (ctx) => {
