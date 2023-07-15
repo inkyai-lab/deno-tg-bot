@@ -1,4 +1,4 @@
-import { Bot } from "./deps.deno.ts";
+import { Bot, InlineKeyboard } from "./deps.deno.ts";
 
 export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "");
 
@@ -13,7 +13,7 @@ bot.command("start", async (ctx) => {
 // Wait for click events with specific callback data.
 bot.callbackQuery("click-payload", async (ctx) => {
   await ctx.answerCallbackQuery({
-    text: "Manualconnect",
+    text: "Manual Connect",
   });
 });
 
