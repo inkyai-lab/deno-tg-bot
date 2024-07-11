@@ -2,7 +2,7 @@ import { Bot, InlineKeyboard } from "https://deno.land/x/grammy@v1.27.0/mod.ts";
 
 export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "123"); // <-- put your bot token between the "" (https://t.me/BotFather)
 
-Reply to any message with "Hi there!".
+// Reply to any message with "Hi there!".
 bot.on("message", (ctx) => ctx.reply("Hi there!"));
 bot.start();
 
