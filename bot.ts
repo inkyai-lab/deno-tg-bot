@@ -1,6 +1,6 @@
 import { Bot } from "https://deno.land/x/grammy@v1.27.0/mod.ts";
 
-const bot = new Bot(Deno.env.get("BOT_TOKEN") || "123"); // <-- put your bot token between the "" (https://t.me/BotFather)
+export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "123"); // <-- put your bot token between the "" (https://t.me/BotFather)
 
 // Reply to any message with "Hi there!".
 bot.on("message", (ctx) => ctx.reply("Hi there!"));
