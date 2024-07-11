@@ -5,7 +5,6 @@ export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "123"); // <-- put your 
 // Reply to any message with "Hi there!".
 // bot.on("message", (ctx) => ctx.reply("Hi there!"));
 
-// bot.start();
 
 // import { Bot, InlineKeyboard } from "./deps.deno.ts";
 // import axiod from "https://deno.land/x/axiod/mod.ts";
@@ -62,3 +61,6 @@ bot.command("start", async (ctx) => {
 //         }
         
 //     });
+
+bot.start();
+
