@@ -2,8 +2,9 @@ import { Bot, InlineKeyboard } from "https://deno.land/x/grammy@v1.27.0/mod.ts";
 
 export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "123"); // <-- put your bot token between the "" (https://t.me/BotFather)
 
-// Reply to any message with "Hi there!".
-// bot.on("message", (ctx) => ctx.reply("Hi there!"));
+Reply to any message with "Hi there!".
+bot.on("message", (ctx) => ctx.reply("Hi there!"));
+bot.start();
 
 
 // import { Bot, InlineKeyboard } from "./deps.deno.ts";
@@ -12,25 +13,25 @@ export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "123"); // <-- put your 
 // export const bot = new Bot(Deno.env.get("BOT_TOKEN") || "123");
 
 // Construct a keyboard.
-const inlineKeyboard = new InlineKeyboard().text("Connect Wallet", "click-payload");
+// const inlineKeyboard = new InlineKeyboard().text("Connect Wallet", "click-payload");
 
-// Build an inline keyboard:
-const homeKeyboard = new InlineKeyboard()
-  .text('Buy', 'connect').text('Sell', 'connect').row()
-  .text('Airdrop', 'connect').text('Claim', 'connect').row()
-  .text('Staking', 'connect').text('Bridge', 'connect').row()
-  .text('Connect Wallet', 'connect').row()
-  // .url('official Website', 'https://ait.finance')
+// // Build an inline keyboard:
+// const homeKeyboard = new InlineKeyboard()
+//   .text('Buy', 'connect').text('Sell', 'connect').row()
+//   .text('Airdrop', 'connect').text('Claim', 'connect').row()
+//   .text('Staking', 'connect').text('Bridge', 'connect').row()
+//   .text('Connect Wallet', 'connect').row()
+//   // .url('official Website', 'https://ait.finance')
 
-// Build an inline keyboard:
-// const connectKeyboard = new InlineKeyboard()
-//   .text('Manual Connect', 'manualConnect').row()
-  // .url('Web Connect', 'https://ait-finance-connect.web.app')
+// // Build an inline keyboard:
+// // const connectKeyboard = new InlineKeyboard()
+// //   .text('Manual Connect', 'manualConnect').row()
+//   // .url('Web Connect', 'https://ait-finance-connect.web.app')
 
-// Send a keyboard along with a message.
-bot.command("start", async (ctx) => {
-  await ctx.reply("Welcome to ZKFair Community Support Bot!", { reply_markup: homeKeyboard });
-});
+// // Send a keyboard along with a message.
+// bot.command("start", async (ctx) => {
+//   await ctx.reply("Welcome to ZKFair Community Support Bot!", { reply_markup: homeKeyboard });
+// });
 
 // // // Wait for click events with specific callback data.
 // // bot.callbackQuery("connect", async (ctx) => {
@@ -62,5 +63,4 @@ bot.command("start", async (ctx) => {
         
 //     });
 
-bot.start();
 
